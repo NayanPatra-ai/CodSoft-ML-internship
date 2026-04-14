@@ -1,0 +1,101 @@
+#  Movie Genre Classification (Final Working Code)
+
+import pandas as pd
+
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
+
+
+# 1. Load Dataset
+import pandas as pd
+
+df = pd.read_csv(
+    "movie_dataset.csv",
+    sep=":::",
+    engine="python",
+    encoding="latin-1"
+)
+
+df.columns = ['id', 'title', 'genre', 'plot']
+df = df[['plot', 'genre']]
+df.dropna(inplace=True)
+
+print(df.head())
+
+# 2. Normalize column names (lowercase)
+df.columns = df.columns.str.lower()
+
+
+# 3. Select correct columns (works for most datasets)
+# Adjust automatically
+
+if 'description' in df.columns:
+    text_col = 'description'
+elif 'plot' in df.columns:
+    text_col = 'plot'
+else:
+    raise Exception("No text column found!")
+
+if 'listed_in' in df.columns:
+    target_col = 'listed_in'
+elif 'genre' in df.columns:
+    target_col = 'genre'
+else:
+    raise Exception("No genre column found!")
+
+
+# 4. Keep only needed columns
+df = df[[text_col, target_col]]
+df.columns = ['plot', 'genre']
+
+# Remove missing values
+df.dropna(inplace=True)
+
+print("\n Using columns:", df.columns)
+
+
+# 5. Train-Test Split
+X = df['plot']
+y = df['genre']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+
+# 6. TF-IDF Vectorization
+vectorizer = TfidfVectorizer(stop_words='english', max_features=5000)
+
+X_train_vec = vectorizer.fit_transform(X_train)
+X_test_vec = vectorizer.transform(X_test)
+
+
+# 7. Train Model
+model = LogisticRegression(max_iter=200)
+model.fit(X_train_vec, y_train)
+
+
+# 8. Evaluate Model
+y_pred = model.predict(X_test_vec)
+
+print("\n Accuracy:", accuracy_score(y_test, y_pred))
+print("\n Classification Report:\n", classification_report(y_test, y_pred))
+
+
+# 9. Prediction Function
+def predict_genre(text):
+    text_vec = vectorizer.transform([text])
+    return model.predict(text_vec)[0]
+
+
+# 10. Test Input
+while True:
+    text = input("\nEnter movie plot (or type 'exit'): ")
+    
+    if text.lower() == "exit":
+        print("Exiting...")
+        break
+    
+    print(" Predicted Genre:", predict_genre(text))
