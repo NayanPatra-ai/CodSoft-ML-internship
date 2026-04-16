@@ -45,17 +45,13 @@ Naive Bayes performs well for text classification due to probabilistic word dist
 **Result:**  
 Achieves high accuracy (~96%) on test data.
 
----
+## ▶️ Example
 
-### ▶️ Example
-
-```text
 Input:
 "Congratulations! You have won a free lottery ticket. Call now!"
 
 Output:
 Spam ❌
-
 Input:
 "Hey, are we meeting today?"
 
@@ -81,6 +77,14 @@ Not Spam ✅
 **Why Logistic Regression?**  
 Efficient for high-dimensional sparse data (like TF-IDF vectors).
 
+## ▶️ Example
+
+Input:
+"A detective investigates a mysterious murder in a small town."
+
+Output:
+Crime / Thriller
+
 ---
 
 ### 👥 Customer Churn Prediction
@@ -101,4 +105,63 @@ Efficient for high-dimensional sparse data (like TF-IDF vectors).
 **Result:**
 - Accuracy: ~86%
 - Balanced performance across classes
-- 
+
+## ▶️ Example
+
+Input:
+CreditScore: 600
+Geography: France
+Gender: Male
+Age: 40
+Balance: 60000
+IsActiveMember: 0
+
+Output:
+Churn ❌ (Customer likely to leave)
+
+---
+
+📁 Project Structure
+
+CodSoft-ML-internship/
+ ├── SPAM_SMS_DETECTION/
+ │    ├── spam_detector.py
+ │    ├── spam.csv
+ │
+ ├── MOVIE_GENRE_CLASSIFICATION/
+ │    ├── movie_classification.py
+ │    ├── movie_dataset.csv
+ │
+ ├── CUSTOMER_CHURN_PREDICTION/
+ │    ├── churn.py
+ │    ├── churn.csv
+ │
+ └── README.md
+
+ ---
+
+ ## 🧠 Tech Stack
+
+- **Programming Language:** Python 🐍  
+- **Libraries:**
+  - Pandas
+  - NumPy
+  - Scikit-learn  
+- **Concepts:**
+  - Machine Learning
+  - Natural Language Processing (NLP)
+  - Data Preprocessing
+  - Model Evaluation
+
+---
+
+💡Key Learnings
+
+- Real-world data is messy → requires cleaning & debugging
+- Model performance depends heavily on preprocessing
+- TF-IDF is powerful for text-based problems
+- Feature selection improves model stability
+- Debugging is a core ML skill, not optional
+  
+
+
