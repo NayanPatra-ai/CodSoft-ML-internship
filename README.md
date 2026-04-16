@@ -1,8 +1,8 @@
 # 🤖 Machine Learning Projects Portfolio
 
-This repository contains a collection of machine learning projects completed as part of my practical training.  
-Each project focuses on solving a real-world problem using appropriate data preprocessing, feature engineering, and model selection techniques.
+This repository showcases machine learning projects developed during the **CODSOFT Machine Learning Internship**.
 
+The projects demonstrate practical implementation of machine learning concepts including Natural Language Processing (NLP), data preprocessing, feature extraction (TF-IDF), and classification models applied to real-world datasets.
 ---
 
 ## 📌 Repository Overview
@@ -162,6 +162,24 @@ CodSoft-ML-internship/
 - TF-IDF is powerful for text-based problems
 - Feature selection improves model stability
 - Debugging is a core ML skill, not optional
+
+---
+
+## 👨‍💻 Author
+
+**Nayan Patra**  
+AI Engineer
+
+I am passionate about building practical machine learning solutions and continuously improving my skills in data science and AI.
+
+---
+
+## 📬 Connect with Me
+
+- 🔗 LinkedIn: www.linkedin.com/in/nayan-patra
+- 💻 GitHub: https://github.com/NayanPatra-ai 
+- 📧 Email: nayanpatara717@gmail.com
+
   
 
 
